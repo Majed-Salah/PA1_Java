@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78f15bf5-9772-4a35-8926-f6ee0f3c21b4" name="Changes" comment="" />
+    <list default="true" id="78f15bf5-9772-4a35-8926-f6ee0f3c21b4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +14,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2H8sQuIMjfczo8QNtbnmDOLFWLb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -23,7 +28,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/sammyel-sherif/IdeaProjects/PA1_Java"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -35,6 +41,7 @@
       <option name="presentableId" value="Default" />
       <updated>1667678034269</updated>
       <workItem from="1667678035527" duration="1000" />
+      <workItem from="1667678178218" duration="106000" />
     </task>
     <servers />
   </component>
