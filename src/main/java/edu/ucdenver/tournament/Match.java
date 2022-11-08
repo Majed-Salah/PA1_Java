@@ -11,10 +11,9 @@ public class Match {
     private int scoreTeamA;
     private int scoreTeamB;
     private ArrayList<Referee> matchReferees;
-//    Team teamA;
+    Team teamA;
 //    LineUp teamA
     Team teamB;
-
 
     public Match(LocalDate dateTime, Team teamA, Team teamB){
         this.dateTime = dateTime;
@@ -23,15 +22,15 @@ public class Match {
     }
 
     public LineUp getTeamA(){
-        return teamA;
+        return new LineUp(teamA);
     }
 
     public LineUp getTeamB(){
-
+        return new LineUp(teamB);
     }
 
     public boolean isUpcoming(){
-
+        if ()
     }
 
     public void addPlayer(Player player, Team team){
