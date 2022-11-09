@@ -1,6 +1,5 @@
 package edu.ucdenver.tournament;
 
-import javafx.scene.shape.Line;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,8 +10,10 @@ public class Match {
     private int scoreTeamA;
     private int scoreTeamB;
     private ArrayList<Referee> matchReferees;
-    Team teamA;
-    Team teamB;
+    private Team teamA;
+    private Team teamB;
+    private LineUp lineUpA = new LineUp(teamA);
+    private LineUp lineUpB = new LineUp(teamB);
 
     public Match(LocalDate dateTime, Team teamA, Team teamB){
         this.dateTime = dateTime;
@@ -21,19 +22,29 @@ public class Match {
     }
 
     public LineUp getTeamA(){
-        return new LineUp(teamA);
+        return lineUpA; // shouldnt these not be new?
     }
 
     public LineUp getTeamB(){
-        return new LineUp(teamB);
+        return lineUpB;
     }
 
     public boolean isUpcoming(){
         return LocalDate.now().isBefore(this.dateTime);
     }
 
+    /**
+     * Add Player Function:
+     * Within the instance of the Match class, the addPlayer function can be passed
+     * a player and team instance. The function will add a player to the specified teams LineUp.
+     */
     public void addPlayer(Player player, Team team){
-        player = new Player();
+        if (team == this.teamA) {
+            getTeamA().addPlayer(player);
+        }
+        else if (team == this.teamB) {
+            getTeamB().addPlayer(player);
+        }
 
     }
 
