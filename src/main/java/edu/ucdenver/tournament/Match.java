@@ -12,7 +12,6 @@ public class Match {
     private int scoreTeamB;
     private ArrayList<Referee> matchReferees;
     Team teamA;
-//    LineUp teamA
     Team teamB;
 
     public Match(LocalDate dateTime, Team teamA, Team teamB){
@@ -21,17 +20,20 @@ public class Match {
         this.teamB = teamB;
     }
 
+
+//    Match match = new Match(dateTime, teamA, teamB);
+
     public LineUp getTeamA(){
-        return new LineUp(teamA);
+        return new LineUp(teamB);
     }
 
     public LineUp getTeamB(){
         return new LineUp(teamB);
     }
 
-    public boolean isUpcoming(){
-        if ()
-    }
+//    public boolean isUpcoming(){
+//        if ()
+//    }
 
     public void addPlayer(Player player, Team team){
 
@@ -50,4 +52,6 @@ public class Match {
         this.scoreTeamA = scoreA;
         this.scoreTeamB = scoreB;
     }
+
+
 }
