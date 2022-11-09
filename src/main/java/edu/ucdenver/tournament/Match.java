@@ -63,4 +63,8 @@ public class Match {
     }
 
 
+    public LocalDate getDate(){
+        return dateTime;
+    }
+
 }
