@@ -20,22 +20,20 @@ public class Match {
         this.teamB = teamB;
     }
 
-
-//    Match match = new Match(dateTime, teamA, teamB);
-
     public LineUp getTeamA(){
-        return new LineUp(teamB);
+        return new LineUp(teamA);
     }
 
     public LineUp getTeamB(){
         return new LineUp(teamB);
     }
 
-//    public boolean isUpcoming(){
-//        if ()
-//    }
+    public boolean isUpcoming(){
+        return LocalDate.now().isBefore(this.dateTime);
+    }
 
     public void addPlayer(Player player, Team team){
+        player = new Player();
 
     }
 
