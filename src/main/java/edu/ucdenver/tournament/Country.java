@@ -4,7 +4,6 @@ public class Country {
     private String countryName;
 
     public Country(String name){
-
         this.countryName = name;
     }
 
