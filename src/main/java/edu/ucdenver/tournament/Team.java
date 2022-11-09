@@ -22,4 +22,11 @@ public class Team {
         squad.add(player);
     }
 
+    public String getTeamName() {
+        return name;
+    }
+
+    public ArrayList<Player> getSquad(){
+        return squad;
+    }
 }

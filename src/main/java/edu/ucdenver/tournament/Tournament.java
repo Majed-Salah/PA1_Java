@@ -10,6 +10,7 @@ public class Tournament {
     private ArrayList<Team> listTeams;
     private ArrayList<Country> participatingCountries;
     private ArrayList<Referee> listReferees;
+    private ArrayList<Match> listMatches;
 
     public Tournament(String name, LocalDate startDate, LocalDate endDate){
         this.name = name;
@@ -18,6 +19,7 @@ public class Tournament {
         this.listTeams = new ArrayList<>();
         this.participatingCountries = new ArrayList<>();
         this.listReferees = new ArrayList<>();
+        this.listMatches = new ArrayList<>();
     }
 
     public void addTeam(String name, String country){
@@ -42,18 +44,50 @@ public class Tournament {
     }
 
     public void addReferee(String name, String country){
-
+        Country c = null;
+        for(Country count: participatingCountries){
+            if(count.getCountryName().equals(name)){
+                c = count;
+            }
+        }
+        try {
+            Referee referee = new Referee(name, c);
+            listReferees.add(referee);
+        }
+        catch(Exception e){
+            System.err.println(e);
+        }
     }
 
     public void addPlayer(String teamName, String playerName, int age, double height, double weight){
-
+        Team team = null;
+        for(Team t: listTeams){
+            if(t.getTeamName().equals(teamName)){
+                team = t;
+            }
+        }
+        team.addPlayer(playerName, age, height, weight);
     }
 
-    public void addMatch(LocalDate dateTime, String refereeName){
+    public void addMatch(LocalDate dateTime, String teamAName, String teamBName){
+        Team teamA = null;
+        Team teamB = null;
 
+        for(Team t: listTeams){
+            if(t.getTeamName().equals(teamAName)){
+                teamA = t;
+            }
+            if(t.getTeamName().equals(teamBName)){
+                teamB = t;
+            }
+        }
+
+        Match match = new Match(dateTime, teamA, teamB);
+        listMatches.add(match);
     }
 
     public void addRefereeToMatch(LocalDate dateTime, String refereeName){
+        Match match = null;
 
     }
 
