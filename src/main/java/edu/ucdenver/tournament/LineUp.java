@@ -15,7 +15,15 @@ public class LineUp {
     }
 
     public void addPlayer(Player player){
-        listOfPlayers.add(player);
+        try {
+            if (this.team.getSquad().contains(player)) {
+                listOfPlayers.add(player);
+            }
+        }
+        catch (Exception e){
+            System.err.println(e);
+        }
+
     }
 
     public List<Player> getPlayers(){
