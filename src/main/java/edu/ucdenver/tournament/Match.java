@@ -15,20 +15,32 @@ public class Match {
     private LineUp lineUpA = new LineUp(teamA);
     private LineUp lineUpB = new LineUp(teamB);
 
+    /**
+     * Match Class Constructor:
+     */
     public Match(LocalDate dateTime, Team teamA, Team teamB){
         this.dateTime = dateTime;
         this.teamA = teamA;
         this.teamB = teamB;
     }
 
+    /**
+     * getTeamA Function:
+     */
     public LineUp getTeamA(){
-        return lineUpA; // shouldnt these not be new?
+        return lineUpA;
     }
 
+    /**
+     * getTeamB Function:
+     */
     public LineUp getTeamB(){
         return lineUpB;
     }
 
+    /**
+     * isUpcoming Function:
+     */
     public boolean isUpcoming(){
         return LocalDate.now().isBefore(this.dateTime);
     }
@@ -45,24 +57,36 @@ public class Match {
         else if (team == this.teamB) {
             getTeamB().addPlayer(player);
         }
-
     }
 
+    /**
+     * getReferees Function:
+     */
     public List<Referee> getReferees(){
         return matchReferees;
     }
 
+    /**
+     * addReferee Function:
+     */
     public void addReferee(Referee ref){
         // TODO Need to handle exception if already exists
         matchReferees.add(ref);
     }
 
+    /**
+     * setMatchScore Function:
+     */
     public void setMatchScore(int scoreA, int scoreB){
         this.scoreTeamA = scoreA;
         this.scoreTeamB = scoreB;
     }
 
-
+    /**
+     * getDate Function:
+     * Implemented so that the Tournament class's function setMatchScore, addPlayerToMatch, addRefereeToMatch
+     * could identify the dateTime of a match.
+     */
     public LocalDate getDate(){
         return dateTime;
     }
