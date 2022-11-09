@@ -13,4 +13,19 @@ public class Player {
         this.weight = weight;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
+    public int getAge(){
+        return age;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
 }

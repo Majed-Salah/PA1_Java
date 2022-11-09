@@ -98,6 +98,25 @@ public class Tournament {
     }
 
     public void addPlayerToMatch(LocalDate dateTime, String teamName, String playerName){
+        Team team = null;
+        Player player = null;
+
+        for(Team t: listTeams){
+            if(t.getTeamName().equals(teamName)){
+                team = t;
+            }
+        }
+        for(Player p: team.getSquad()){
+            if(p.getName().equals(playerName)){
+                player = p;
+            }
+        }
+
+        for(Match match: listMatches){
+            if(match.getDate() == dateTime){
+                match.addPlayer(player, team);
+            }
+        }
 
     }
 
@@ -112,7 +131,14 @@ public class Tournament {
     }
 
     public ArrayList<Match> getUpcomingMatches(){
+        ArrayList<Match> upcomingMatches = new ArrayList<>();
+        for(Match match: listMatches){
+            if(match.isUpcoming()){
+                upcomingMatches.add(match);
+            }
+        }
 
+        return upcomingMatches;
 
     }
 
