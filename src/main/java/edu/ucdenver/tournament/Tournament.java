@@ -1,6 +1,7 @@
 package edu.ucdenver.tournament;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 
 public class Tournament {
@@ -38,9 +39,14 @@ public class Tournament {
         }
     }
 
-    public void addCountry(String country){
+    public void addCountry(String country) throws Exception{
         Country c = new Country(country);
-        this.participatingCountries.add(c);
+        if(this.participatingCountries.contains(c)){
+            throw new Exception();
+        }
+        else{
+            this.participatingCountries.add(c);
+        }
     }
 
     public void addReferee(String name, String country){
@@ -96,22 +102,59 @@ public class Tournament {
     }
 
     public void setMatchScore(LocalDate matchDate, int team1Score, int team2Score){
-
+        Match m = null;
+        for(Match match: listMatches){
+            if(match.getDate() == matchDate){
+                m = match;
+            }
+        }
+        m.setMatchScore(team1Score, team2Score);
     }
 
     public ArrayList<Match> getUpcomingMatches(){
 
+
     }
 
     public ArrayList<Match> getMatchesOn(LocalDate matchDate){
+        ArrayList<Match> dateMatches = new ArrayList<>();
+
+        int year = matchDate.getYear();
+        Month month = matchDate.getMonth();
+        int day = matchDate.getDayOfMonth();
+
+        for(Match match: listMatches){
+            if(match.getDate().getYear() == year && match.getDate().getMonth() == month && match.getDate().getDayOfMonth() == day){
+                dateMatches.add(match);
+            }
+        }
+
+        return dateMatches;
 
     }
 
     public ArrayList<Match> getMatchesFor(String teamName){
+        ArrayList<Match> teamMatches = new ArrayList<>();
+        for(Match match: listMatches){
+            if(match.getTeamA().getTeam().getTeamName().equals(teamName) || match.getTeamB().getTeam().getTeamName().equals(teamName)){
+                teamMatches.add(match);
+            }
+        }
+
+        return teamMatches;
 
     }
 
     public ArrayList<LineUp> getMatchLineUps(LocalDate matchDate){
+        ArrayList<LineUp> matchLineUp = new ArrayList<>();
+        for(Match match: listMatches){
+            if(match.getDate() == matchDate){
+                matchLineUp.add(match.getTeamA());
+                matchLineUp.add(match.getTeamB());
+            }
+        }
+
+        return matchLineUp;
 
     }
 
